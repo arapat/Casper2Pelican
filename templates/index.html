@@ -2,9 +2,8 @@
 {% block header_type %}{% endblock %}
 {% block content %}
 <main id="content" class="content" role="main" itemprop="mainContentOfPage" itemscope="" itemtype="http://schema.org/Blog">
-    <div>
-        {% include 'pagination.html' %}
-    </div>
+<section id="wrapper">
+<div id="primary">
     {% if articles_page.object_list %}
     {% for article in articles_page.object_list %}
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -38,5 +37,19 @@
     </article>
     {% endif %}
     {% include 'pagination.html' %}
+</div> <!-- Primary -->
+<div id="secondary">
+{% if WEBRING_FEED_URLS %}
+    <div class="webring">
+        <h2 class="post-title">Short posts</h2>
+        {% for article in webring_articles %}
+        <p>{{ article.date|strftime('%d %B %Y') }}</p>
+        <div class="short-post">{{ article.summary }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+</div> <!-- Secondary -->
+</section> <!-- Wrapper -->
 </main>
+
 {% endblock content %}
