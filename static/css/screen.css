@@ -1848,6 +1848,33 @@ body:not(.post-template) .post-title {
         border-left: none;
     }
 
+    .inner {
+        margin: auto 5%;
+    }
+
+    #wrapper {
+        width: 100%;
+        margin: auto;
+    }
+
+    #primary {
+        width: 100%;
+        margin: auto 5%;
+    }
+
+    #secondary {
+        width: 100%;
+        margin: auto 5%;
+    }
+
+    #wrapper .post {
+        margin: 0;
+    }
+
+    #secondary .webring {
+        margin: 0;
+    }
+
 }
 
 
@@ -1937,7 +1964,7 @@ body:not(.post-template) .post-title {
     .inner,
     .pagination {
         width: auto;
-        margin: 2rem auto;
+        margin: 2rem 5%;
     }
 
     .post {
