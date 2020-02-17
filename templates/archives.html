@@ -8,6 +8,8 @@
 {% endblock %}
 {% block content %}
 <main id="content" class="content" role="main">
+<section id="wrapper">
+<div id="primary">
     {% set last_year = 0 %}
     {% for article in dates %}
     <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
@@ -42,5 +44,7 @@
     </article>
     {% endfor %}
 
+</div>
+</section>
 </main>
 {% endblock %}

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}{{ SITENAME }} - Authors{% endblock %}
 {% block content %}
+<section id="wrapper">
+<div id="primary">
 <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <header>
         <h1 class="post-title" itemprop="headline">Authors on {{ SITENAME }}</h1>       
@@ -24,4 +26,6 @@
         <hr>
     </section>
 </article>
+</div>
+</section>
 {% endblock %}

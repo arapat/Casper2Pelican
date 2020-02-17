@@ -9,6 +9,8 @@
 {% block template_type %}post-template page-template page{% endblock %}
 {% block content %}
 <main id="content" class="content" role="main">
+<section id="wrapper">
+<div id="primary">
     <article class="post page" itemscope="" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
         <!--
         <header class="post-header">
@@ -19,5 +21,7 @@
             {{ page.content }}
         </section>
     </article>
+</div>
+</section>
 </main>
 {% endblock %}
