@@ -40,12 +40,42 @@
 </div> <!-- Primary -->
 <div id="secondary">
 {% if WEBRING_FEED_URLS %}
+    {% set last_post = {"date": ""} %}
     <div class="webring">
-        <h2 class="post-title">Short posts</h2>
-        {% for article in webring_articles[-1:-5:-1] %}
-        <p>{{ article.date|strftime('%d %B %Y') }}</p>
-        <div class="short-post">{{ article.title }}</div>
+        {% for article in webring_articles %}
+        {% set curr_date = article.date|strftime('%d %B %Y') %}
+        {% if last_post.date != curr_date %}
+
+        {% if last_post.date != "" %}
+            </ul>
+        </div><!-- end of {{ last_post.date }} -->
+        {% endif %}
+
+        <div class="day">
+            <h3 class="date">{{ curr_date }}</h3>
+                <ul class="post-list">
+        {% if last_post.update({"date": curr_date}) %}{% endif %}
+        {% endif %}
+            <li class="short-post">
+                {% set ref_link = "<a href=\"" + article.link + "\">#</a>" %}
+                {% set summary = article.summary | replace("(<br>\s*)+$", "") %}
+
+                {% if summary.startswith('“') %}
+                {% set quote_end = summary.find('”') + 1 %}
+                <blockquote>
+                    {{ summary[:quote_end] }}
+                </blockquote>
+                {% set source_start = summary[quote_end:].find('-') %}
+                {{ summary[quote_end + source_start:] }}
+                {% else %}
+                {{ summary }}
+                {% endif %}
+            </li>
         {% endfor %}
+        {% if last_post.date != "" %}
+            </ul>
+        </div>  <!-- end of {{ last_post.date }} -->
+        {% endif %}
     </div>
 {% endif %}
 </div> <!-- Secondary -->
