@@ -19,7 +19,11 @@
         {% set page = sub_album.pages[0] %}
         <span class="album-cover">
         <a href="/{{ page.url }}">
+            {% if page.cover_image.url.startswith("http") %}
+            <img src="{{ page.cover_image.url }}">
+            {% else %}
             <img src="/{{ page.cover_image.url }}">
+            {% endif %}
             <p>{{ page.title }}</p>
         </a></span>
         {% endfor %}
@@ -34,7 +38,11 @@
     <div class="gg-container">
         <div class="gg-box" id="square">
         {% for image in album.images %}
+            {% if image.url.startswith("http") %}
+            <img src="{{ image.url }}">
+            {% else %}
             <img src="/{{ image.url }}">
+            {% endif %}
         {% endfor %}
         </div>
     </div>
