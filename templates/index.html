@@ -42,9 +42,9 @@
 {% if WEBRING_FEED_URLS %}
     <div class="webring">
         <h2 class="post-title">Short posts</h2>
-        {% for article in webring_articles %}
+        {% for article in webring_articles[-1:-5:-1] %}
         <p>{{ article.date|strftime('%d %B %Y') }}</p>
-        <div class="short-post">{{ article.summary }}</div>
+        <div class="short-post">{{ article.title }}</div>
         {% endfor %}
     </div>
 {% endif %}

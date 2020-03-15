@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{%endblock%}
+{% block scroll %}{% endblock %}
+{% block header_title %}
+<h1 class="page-title" itemprop="headline"><a href="/">Julaiti Alafate</a></h1>
+{% endblock %}
+{% block header_type %}post-head no-cover{% endblock %}
+{% block header_image %}{% endblock %}
+{% block template_type %}post-template page-template page{% endblock %}
+{% block content %}
+<main id="content" class="content" role="main">
+<section id="wrapper">
+    {% if album.albums %}
+    <!-- root album -->
+    <h3 class="post-title">my jpeg samples</h2>
+    <div class="gg-container">
+        <div class="gg-box" id="square">
+        {% for sub_album in album.albums %}
+        {% set page = sub_album.pages[0] %}
+        <span class="album-cover">
+        <a href="/{{ page.url }}">
+            <img src="/{{ page.cover_image.url }}">
+            <p>{{ page.title }}</p>
+        </a></span>
+        {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="album-header">
+        <h3 class="post-title">{{ page.title }}</h2>
+        <a href="/albums">return to all albums</a>
+    </div>
+    <!-- sub album -->
+    <div class="gg-container">
+        <div class="gg-box" id="square">
+        {% for image in album.images %}
+            <img src="/{{ image.url }}">
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</section> <!-- Wrapper -->
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        gridGallery({
+            selector: "#square",
+            layout: "square"
+        });
+    }, false);
+</script>
+{% endblock %}
