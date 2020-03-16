@@ -144,6 +144,55 @@
     line-height: 36px;
 }
 
+/*
+    Header
+*/
+
+.main-header-content {
+    float: left;
+}
+
+.nav-static {
+    float: right;
+}
+
+@media only screen and (max-width: 700px) {
+    .nav-static {
+        margin-top: 0px;
+    }
+
+    .nav-static .can-hide {
+        display: none;
+    }
+}
+
+.nav-static ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-static li {
+    display: inline;
+    font-size: 2rem;
+}
+
+.nav-static li a {
+    color: #fff;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-static li:not(.nav-current) a:hover {
+  background-color: #111;
+}
+
+.nav-static li.nav-current {
+  background-color: #42616d;
+}
 
 /*
     Short posts
@@ -202,5 +251,5 @@ ul.post-list li {
 }
 
 .album-cover img {
-  opacity: 0.2;
+    opacity: 0.2;
 }

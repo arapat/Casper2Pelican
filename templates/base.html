@@ -18,11 +18,11 @@
         <link rel="dns-prefetch" href="//twemoji.maxcdn.com"/>
         <link rel="dns-prefetch" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/screen.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/highlight.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/custom.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL}}/theme/css/twemoji-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/grid-gallery.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/screen.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/highlight.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/twemoji-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/theme/css/grid-gallery.min.css">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
         <link rel="publisher" href="{{ PUBLISHER }}">
         <link rel="apple-touch-startup-image" href="{{ SITEURL }}/theme/images/logo.png">
@@ -116,22 +116,16 @@
         <meta itemprop="description about" content="{{ SITE_DESCRIPTION }}">
         <meta itemprop="keywords" content="{{ articles.tags }}">
         <meta itemprop="inLanguage" content="{{ DEFAULT_LANG }}">
-        {% include 'navigation.html' %}
         <div class="site-wrapper">
             <header class="main-header post-head" style="background-image: url('{% block header_image %}{{ DEFAULT_HEADER_IMAGE }}{% endblock %}');" itemscope itemtype="http://schema.org/WPHeader">
-                <nav class="main-nav overlay clearfix">
-                    <a class="menu-button" href="#">
-                        <span class="burger">&#9776;</span>
-                        <span class="word">Menu</span>
-                    </a>
-                </nav>
-                <div class="vertical">
-                    <div class="main-header-content inner">
+                <div class="inner">
+                    <div class="main-header-content vertical">
                         {% block header_title %}
                         <h1 class="page-title" itemprop="headline">{{ SITENAME }}</h1>
                         <h2 class="page-description" itemprop="description">{{TAG_LINE}}</h2>
                         {% endblock %}
                     </div>
+                    {% include 'navigation.html' %}
                 </div>
                 {% block scroll %}
                 {% endblock %}
@@ -147,9 +141,9 @@
                 </section>
             </footer>
         </div>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.fitvids.min.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/grid-gallery.min.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/index.min.js"></script>
+    <script type="text/javascript" src="/theme/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/theme/js/jquery.fitvids.min.js"></script>
+    <script type="text/javascript" src="/theme/js/grid-gallery.min.js"></script>
+    <script type="text/javascript" src="/theme/js/index.min.js"></script>
     </body>
 </html>

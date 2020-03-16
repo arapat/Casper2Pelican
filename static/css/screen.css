@@ -133,9 +133,11 @@ td, th{ padding: 0; }
 .icon-ghost:before {
     content: "\f600";
 }
+/*
 .icon-feed:before {
     content: "\f601";
 }
+*/
 .icon-twitter:before {
     content: "\f602";
     font-size: 1.1em;
@@ -463,10 +465,10 @@ margin on the iframe, cause it breaks stuff. */
 
 /* Creates a responsive wrapper that makes our content scale nicely */
 .inner {
-    position: relative;
     width: 80%;
     max-width: 960px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 /* Centres vertically yo. (IE8+) */
@@ -515,8 +517,12 @@ body.nav-opened .site-wrapper {
     margin-left: 70%;
 }
 
+#secondary .webring {
+    margin: 0 5% 0 0;
+}
+
 #wrapper .post {
-    margin: 0;
+    margin: 0 5%;
 }
 
 /* Big cover image on the home page */
@@ -531,10 +537,12 @@ body.nav-opened .site-wrapper {
     background-size: cover;
     overflow: hidden;
     text-align: left;
+    padding-top: 0.5em;
 }
 
 .main-header .inner {
     width: 80%;
+    max-width: 960px;
 }
 
 .main-nav {
@@ -706,30 +714,9 @@ body.nav-opened .nav {
 }
 
 .subscribe-button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
     position: absolute;
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
-    height: 38px;
-    padding: 0 20px;
-    color: #111 !important; /* Overides `.nav a:link, .nav a:visited` colour */
-    text-align: center;
-    font-size: 12px;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    line-height: 35px;
-    border-radius: 3px;
-    background: #fff;
-    transition: all ease 0.3s;
-}
-.subscribe-button:before {
-    font-size: 9px;
-    margin-right: 6px;
+    right: 10px;
+    top: 10px;
 }
 
 
@@ -876,7 +863,7 @@ body.nav-opened .nav {
 
 /* The details of your blog. Defined in ghost/settings/ */
 .page-title {
-    margin: 10px 0 10px 0;
+    margin: 10px;
     font-size: 4rem;
     letter-spacing: -1px;
     font-weight: 700;
@@ -1604,7 +1591,7 @@ body:not(.post-template) .post-title {
     position: relative;
     width: 80%;
     max-width: 960px;
-    margin: 4rem 0;
+    margin: 4rem 5%;
     font-family: "Open Sans", sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
@@ -1873,11 +1860,11 @@ body:not(.post-template) .post-title {
     }
 
     #wrapper .post {
-        margin: 0;
+        margin: 0 5%;
     }
 
     #secondary .webring {
-        margin: 0;
+        margin: 0 10% 0 5%
     }
 
 }
@@ -1969,7 +1956,7 @@ body:not(.post-template) .post-title {
     .inner,
     .pagination {
         width: auto;
-        margin: 2rem 5%;
+        margin: 0 5%;
     }
 
     .post {

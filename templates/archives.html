@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% set active_page = "archives" %}
 {% block header_image %}{% if ARCHIVE_HEADER_IMAGE %}{{ ARCHIVE_HEADER_IMAGE }}{% else %}{{ DEFAULT_HEADER_IMAGE }}{% endif %}{% endblock %}
 {% block header_type %}post-head{% endblock %}
 {% block scroll %}{% endblock %}

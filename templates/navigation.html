@@ -1,21 +1,22 @@
-<nav class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
+{% if page %}
+    {% set current_url = page.url %}
+    {% set current_saveas = page.save_as %}
+{% endif %}
+<nav class="nav-static">
     <ul role="menubar">
-        {% if index %}{% set current_url = '/' %}{% endif %}
-        {% if archives %}{% set current_url = '/archives' %}{% endif %}
-        {% if page %}{% set current_url = page.url %}{% endif %}
-        <li class="{% if current_url == '/' %}nav-current{% endif %}" role="presentation"><a  href="{{ SITEURL }}/index.html" title="{{ SITENAME }}" itemprop="name" itemprop="significantLink">Home</a></li>
+        <li class="{% if current_saveas == 'index.html' %}nav-current{% endif %}" role="presentation"><a  href="/index.html" title="{{ SITENAME }}" itemprop="name" itemprop="significantLink">Home</a></li>
         {% for p in PAGES %}
-            <li class="{% if current_url == p.url %}nav-current{% endif %}" role="presentation"><a  href="{{ SITEURL }}/{{ p.url }}" title="{{ SITENAME }} |{{ p.title }}" itemprop="name" itemprop="significantLink">{{ p.title }}</a></li>
+            <li class="{% if current_url == p.url %}nav-current{% endif %}" role="presentation"><a  href="/{{ p.url }}" title="{{ SITENAME }} |{{ p.title }}" itemprop="name" itemprop="significantLink">{{ p.title }}</a></li>
         {% endfor %}
         {% for site_title, site_link in LINKS %}
-            <li role="presentation"><a  href="{{ site_link }}" title="{{ site_title }}" itemprop="name" itemprop="significantLink">{{ site_title }}</a></li>
+            <li class="{% if active_page == 'album' and 'album' in site_link or active_page == 'index' and 'blog' in site_link %}nav-current{% endif %}" role="presentation"><a  href="{{ site_link }}" title="{{ site_title }}" itemprop="name" itemprop="significantLink">{{ site_title }}</a></li>
         {% endfor %}
-            <li class="{% if current_url == '/archives' %}nav-current{% endif %}" role="presentation"><a  href="{{ SITEURL }}/archives.html" title="{{ SITENAME }} | Archives" itemprop="name" itemprop="significantLink">Archives</a></li>
+        <!--<li class="{% if active_page == 'archives' %}nav-current{% endif %} can-hide" role="presentation"><a  href="/archives.html" title="{{ SITENAME }} | Archives" itemprop="name" itemprop="significantLink">Archives</a></li>-->
     </ul>
-    {% if FEED_RSS %}<a class="subscribe-button icon-feed" href='{{ SITEURL }}/{{ FEED_ALL_ATOM }}'  target='blank'>Subscribe</a>{% endif %}
+    {% if FEED_RSS %}<a class="subscribe-button icon-feed can-hide" href='/{{ FEED_RSS }}' target='blank'>
+        <svg class="social-icon" viewBox="0 0 800 800" style="width: 20px; background: #ee802f; fill: #fff;">
+            <path d="M493 652H392c0-134-111-244-244-244V307c189 0 345 156 345 345zm71 0c0-228-188-416-416-416V132c285 0 520 235 520 520z"/>
+                <circle cx="219" cy="581" r="71"/>
+        </svg>
+    </a>{% endif %}
 </nav>
-<span class="nav-cover"></span>
